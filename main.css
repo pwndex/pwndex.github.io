@@ -72,3 +72,10 @@ body {
 		text-align: center;
 	}
 }
+
+@media screen and (max-width: 350px) {
+	.p__name {
+		width: 200px;
+		text-align: center;
+	}
+}
