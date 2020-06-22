@@ -19,10 +19,10 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #000;
+	background: url('images/ocean.jpg');
 }
 
-.container > img {
+.container>img {
 	width: 150px;
 	height: 150px;
 	margin: 20px;
@@ -32,10 +32,18 @@ body {
 	object-fit: cover;
 }
 
-.container > p {
-	font-family: 'TypoPRO Bebas Neue';
-	font-size: 4em;
+.p__name {
+	font-family: 'TradeGothic LT';
+	font-weight: 700;
+	font-size: 2em;
 	color: rgb(255, 255, 255);
+}
+
+.p__desc {
+	font-family: 'Victor Mono';
+	font-size: 1em;
+	color: rgb(255, 255, 255);
+	margin-bottom: 15px;
 }
 
 .links {
