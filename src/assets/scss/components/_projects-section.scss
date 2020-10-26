@@ -1,0 +1,161 @@
+// ============================================= PROJECTS SECTION =============================================
+.projects {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px 50px;
+  background: $color-black;
+
+// ============================================= PROJECTS WRAPPER ==============================================
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  &__title {
+    text-align: right;
+    font-weight: 700;
+    font-size: 2rem;
+    color: $color-white;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    width: 100%;
+    max-width: 700px;
+    text-align: right;
+    align-self: flex-end;
+    color: $color-gray-d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 20px 0 60px 0;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    perspective: 1000px;
+    margin: 10px;
+    position: relative;
+
+    &-front,
+    &-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      color: $color-white;
+      transition: 0.7s;
+    }
+
+    &-front {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $color-black;
+      padding: 15px 10px;
+      border: 1px solid $color-grey-a;
+
+      &-image {
+        width: 70%;
+        height: 70%;
+        border-radius: 10px;
+        object-fit: contain;
+      }
+    }
+    &-back {
+      transform: rotateY(-180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background: $color-darkgrey;
+      padding: 20px 10px;
+
+      &-repo-link {
+        display: block;
+        color: $color-white;
+        text-decoration: none;
+        transition: 0.7s;
+        font-size: 1.5rem;
+      }
+
+      &-desc {
+        width: 90%;
+        text-indent: 3%;
+        color: $color-gray-d;
+        font-size: 0.8rem;
+        font-weight: 400;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      &-link {
+        color: $color-white;
+        text-decoration: none;
+        text-transform: capitalize;
+        padding: 10px 15px;
+        transition: 0.7s;
+      }
+
+      &-link:hover {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      &-repo-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &:hover &-front {
+      transform: rotateY(-180deg);
+    }
+
+    &:hover &-back {
+      transform: rotateY(-360deg);
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    &__cards {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: $screen-xs-max) {
+    padding: 70px 0;
+    
+    &__title {
+      text-align: center;
+    }
+
+    &__subtitle {
+      text-align: center;
+      align-self: center;
+      font-size: 0.8rem;
+    }
+  }
+}
+// ============================================= / PROJECTS SECTION =============================================

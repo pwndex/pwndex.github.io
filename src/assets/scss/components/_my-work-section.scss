@@ -1,0 +1,92 @@
+// ============================================= MY WORK SECTION =============================================
+.my-work {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 50px;
+  width: 100%;
+  background: $color-black;
+
+// ============================================= MY WORK WRAPPER =============================================
+  &__wrapper {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-white;
+    text-transform: uppercase;
+  }
+
+  &__subtitle {
+    color: $color-gray-d;
+    font-weight: 300;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 20px 0 60px 0;
+
+    .subtitle {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__list-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &-lists {
+      margin: auto;
+      width: 100%;
+      max-width: 350px;
+      color: $color-gray-d;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      padding: 20px 15px;
+      list-style-type: disc;
+    }
+
+    &-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: $color-white;
+    }
+  }
+
+  &__links {
+    color: $color-white;
+    text-decoration: none;
+    transition: 0.7s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  &__links:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  @media (max-width: $screen-sm-max) {
+    &__list-block {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: $screen-xs-max) {
+    padding: 70px 0;
+
+    &__title {
+      text-align: center;
+    }
+
+    &__subtitle {
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  }
+}
+// ============================================= / MY WORK SECTION =============================================

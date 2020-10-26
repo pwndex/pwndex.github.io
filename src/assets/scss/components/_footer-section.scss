@@ -1,0 +1,115 @@
+// ============================================= FOOTER SECTION =============================================
+.footer {
+  position: relative;
+  padding: 200px 50px;
+  background: $color-black;
+
+// ============================================= FOOTER WRAPPER =============================================
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: $color-darkgrey;
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: 60px;
+  }
+
+  &__social-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &-links {
+      list-style: none;
+      margin: 0 10px 10px 10px;
+    }
+
+    &-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      color: $color-white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      background: $color-black;
+      border-radius: 50%;
+      transition: 0.7s;
+    }
+
+    &-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__scroll-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    color: $color-white;
+    background: $color-black;
+    border-radius: 50%;
+    transition: 0.7s;
+  }
+
+  &__scroll-top:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+
+    &-first-section {
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 200;
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+      order: 2;
+    }
+
+    &-second-section {
+      color: $color-white;
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: 5px;
+      order: 1;
+
+      &-link {
+        color: $color-white;
+        text-decoration: none;
+        transition: 0.7s;
+      }
+
+      &-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    &__social-block {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+}
+// ============================================= / FOOTER SECTION =============================================
