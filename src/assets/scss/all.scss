@@ -1,0 +1,17 @@
+@import 'fonts';
+@import 'vendor';
+@import 'reset';
+@import 'vars';
+@import 'components';
+
+html,
+body {
+  height: 100%;
+  font-family: 'JosefinSans';
+}
+
+.body-fixed {
+  position: fixed;
+  overflow-y: hidden;
+  transition: overflow-y 0.2s linear, position 0.2s linear 0.2s; 
+}

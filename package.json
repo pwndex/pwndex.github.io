@@ -21,16 +21,26 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.12",
     "del": "^6.0.0",
     "gh-pages": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-dependents": "^1.2.5",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.2.2",
     "gulp-imagemin": "^7.1.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-sass": "^4.1.0"
+    "gulp-notify": "^3.2.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-ttf2woff2": "^3.0.0",
+    "gulp-uglify-es": "^2.0.0",
+    "webpack-stream": "^6.1.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "particles.js": "^2.0.0",
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }

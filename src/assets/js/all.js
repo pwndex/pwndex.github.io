@@ -1,5 +1,9 @@
 window.__forceSmoothScrollPolyfill__ = true
+import smoothscroll from 'smoothscroll-polyfill'
+import 'particles.js/particles'
+import '@fortawesome/fontawesome-free/js/all'
 
+smoothscroll.polyfill()
 particlesJS.load('particles-js', 'assets/js/particles.json')
 
 // Fixed Navigation On Scroll

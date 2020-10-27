@@ -18,87 +18,123 @@
 
 const gulp                      = require('gulp'),
       del                       = require('del'),
-      plumber                   = require('gulp-plumber'),
       imagemin                  = require('gulp-imagemin'),
       gulp_sass                 = require('gulp-sass'),
-      babel                     = require('gulp-babel'),
       autoprefixer              = require('gulp-autoprefixer'),
-      dependents                = require('gulp-dependents'),
-      concat                    = require('gulp-concat'),
+      sourcemaps                = require('gulp-sourcemaps'),
+      notify                    = require('gulp-notify'),
+      uglify                    = require('gulp-uglify-es').default,
+      cleanCSS                  = require('gulp-clean-css'),
+      fileinclude               = require('gulp-file-include'),
+      ttf2woff2                 = require('gulp-ttf2woff2')
+      webpackStream             = require('webpack-stream'),
       browserSync               = require('browser-sync').create(),
 
       src_folder                = './src/',
       src_assets_folder         = src_folder + 'assets/',
       dist_folder               = './dist/',
-      dist_assets_folder        = dist_folder + 'assets/',
+      dist_assets_folder        = dist_folder + 'assets/'
 
-      dev_tasks                 = [html, json, sass, js],
-      build_tasks               = [clear, html, json, sass, js, images]
-
-
-function clear() {
+const clean = () => {
   return del([dist_folder])
 }
 
-function html() {
+const html = () => {
   return gulp
-    .src([src_folder + '**/*.html'], {
-      base: src_folder,
-    })
+    .src([src_folder + '*.html'])
+    .pipe(fileinclude({
+      prefix: '@',
+      basepath: '@file'
+    }))
     .pipe(gulp.dest(dist_folder))
     .pipe(browserSync.stream())
 }
 
-function json() {
+const json = () => {
   return gulp
     .src(src_assets_folder + 'js/**/*.json')
     .pipe(gulp.dest(dist_assets_folder + 'js'))
 }
 
-function js() {
-  return gulp.src([ src_assets_folder + 'js/**/*.js' ])
-    .pipe(plumber())
-    .pipe(babel({
-      presets: [ '@babel/env' ]
-    }))
-    .pipe(concat('all.js'))
+const js = () => {
+  return gulp
+    .src([src_assets_folder + 'js/**/*.js' ])
+    .pipe(webpackStream(
+      {
+        mode: 'development',
+        output: {
+          filename: 'all.js',
+        },
+        module: {
+          rules: [{
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
+          }]
+        },
+      }
+    ))
+    .on('error', function (err) {
+      console.error('WEBPACK ERROR', err);
+      this.emit('end');
+    })
+
+    .pipe(sourcemaps.init())
+    .pipe(uglify().on("error", notify.onError()))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist_assets_folder + 'js'))
     .pipe(browserSync.stream());
 }
 
-function sass() {
-  return gulp.src(src_assets_folder + 'scss/**/*.scss')
-    .pipe(plumber())
-    .pipe(dependents())
-    .pipe(gulp_sass())
-    .pipe(autoprefixer())
+const sass = () => {
+  return gulp
+    .src(src_assets_folder + 'scss/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(gulp_sass({
+      outputStyle: 'expanded'
+    }).on("error", notify.onError()))
+    .pipe(autoprefixer({
+      cascade: false,
+    }))
+    .pipe(cleanCSS({
+      level: 2
+    }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(dist_assets_folder + 'css'))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
 }
 
-function images() {
+const fonts = () => {
+  return gulp
+    .src(src_assets_folder + 'fonts/**/*.ttf')
+    .pipe(ttf2woff2())
+    .pipe(gulp.dest(dist_assets_folder + 'fonts'))
+}
+
+const images = () => {
   return gulp
     .src([src_assets_folder + 'images/**/*.+(png|jpg|jpeg|gif|svg|ico)'])
-    .pipe(plumber())
     .pipe(imagemin())
     .pipe(gulp.dest(dist_assets_folder + 'images'))
     .pipe(browserSync.stream())
 }
 
-function serve() {
-  return browserSync.init({
+const watch = () => {
+  browserSync.init({
     server: {
-      baseDir: ['dist'],
+      baseDir: 'dist',
     },
-    port: 3000,
-    open: false,
   })
-}
 
-function watch() {
   const watch = [
       src_folder + '**/*.html',
       src_assets_folder + 'js/**/*.json',
+      src_assets_folder + 'fonts/**',
       src_assets_folder + 'scss/**/*.scss',
       src_assets_folder + 'js/**/*.js',
     ],
@@ -110,5 +146,8 @@ function watch() {
   gulp.watch(watchImages, gulp.series(images)).on('change', browserSync.reload)
 }
 
-exports.serve = gulp.series(build_tasks, gulp.parallel(serve, watch))
+const dev_tasks                 = [html, json, fonts, sass, js],
+      build_tasks               = [html, json, fonts, images, sass, js]
+
+exports.serve = gulp.series(clean, gulp.parallel(html, json, sass, js, images), fonts, watch)
 exports.build = gulp.series(build_tasks)
