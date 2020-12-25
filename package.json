@@ -36,7 +36,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-ttf2woff2": "^3.0.0",
     "gulp-uglify-es": "^2.0.0",
-    "webpack-stream": "^6.1.0"
+    "webpack-stream": "^6.1.0",
+    "node-notifier": "^8.0.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
