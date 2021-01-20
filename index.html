@@ -19,7 +19,7 @@
     <meta name="author" content="Amal' Greenberg">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.ico" />
     <!-- FONTS AND STYLES SECTION -->
-    <link rel="stylesheet" href="assets/css/all.css" />
+    <link rel="stylesheet" as="style" href="assets/css/all.css" />
     <!-- / FONTS AND STYLES SECTION -->
 
     <!-- GLOBAL SITE TAG (gtag.js) - Google Analytics -->
@@ -35,6 +35,11 @@
   </head>
   <body>
 
+    <!-- PRELOADER SECTION -->
+    <div class="preloader">
+      <img src="assets/images/preloader.svg" alt="preloader">
+    </div>
+
     <!-- HEADER SECTION -->
     <header class="header" id="header">
       <div class="header__wrapper">
@@ -44,7 +49,7 @@
               <img
                 src="assets/images/pwndex-logo-white.svg"
                 class="header__logo-image"
-                alt=""
+                alt="Website Logo"
               />
             </a>
 
@@ -76,7 +81,7 @@
             <img
               class="header__content-image"
               src="assets/images/profile_pic.png"
-              alt=""
+              alt="Profile Photo"
             />
             <div class="header__content-about">
               <p class="header__content-about-sections">
@@ -101,146 +106,148 @@
       <span class="header__particles" id="particles-js"></span>
     </header>
 
-    <!-- MY WORK SECTION -->
-    <section class="my-work" id="my-work">
-      <div class="my-work__wrapper">
-        <h2 class="my-work__title">my work</h2>
-        <div class="my-work__subtitle">
-          <p class="subtitle">
-            I'm 22 and I recently dropped out of university and I don't regret
-            it, because only by making mistakes we learn and gain experience,
-            and now I know that I want to develop and grow as a specialist in
-            web development.
-          </p>
-          <p class="subtitle">
-            I've never been the best at school and in life in general, but I've
-            always been a curious guy, even in my earliest childhood, I took all 
-            my toys apart to see how they work inside. And even now I always try 
-            to figure out how all these things work so that it's no longer be magic for me.
-          </p>
-          <p class="subtitle">
-            i think i can master any skill i want with just only constantly practicing and experimenting.
-          </p>
-        </div>
-        <div class="my-work__list">
-
-          <div class="my-work__list-block">
-            <h3 class="my-work__list-title">front end</h3>
-            <ul class="my-work__list-lists">
-              <li>html5, css3, sass(scss)</li>
-              <li>vanilla javascript & es6+, vue.js</li>
-              <li>api, full stack web apps</li>
-            </ul>
+    <main>
+      <!-- MY WORK SECTION -->
+      <section class="my-work" id="my-work">
+        <div class="my-work__wrapper">
+          <h2 class="my-work__title">my work</h2>
+          <div class="my-work__subtitle">
+            <p class="subtitle">
+              I'm 22 and I recently dropped out of university and I don't regret
+              it, because only by making mistakes we learn and gain experience,
+              and now I know that I want to develop and grow as a specialist in
+              web development.
+            </p>
+            <p class="subtitle">
+              I've never been the best at school and in life in general, but I've
+              always been a curious guy, even in my earliest childhood, I took all
+              my toys apart to see how they work inside. And even now I always try
+              to figure out how all these things work so that it's no longer be magic for me.
+            </p>
+            <p class="subtitle">
+              i think i can master any skill i want with just only constantly practicing and experimenting.
+            </p>
           </div>
-          
-          <div class="my-work__list-block">
-            <h3 class="my-work__list-title">back end</h3>
-            <ul class="my-work__list-lists">
-              <li>php, laravel, mysql</li>
-              <li>architecture of web applications</li>
-            </ul>
-          </div>
+          <div class="my-work__list">
 
-          <div class="my-work__list-block">
-            <h3 class="my-work__list-title">other skills</h3>
-            <ul class="my-work__list-lists">
-              <li>git, git flow, linux</li>
-              <li>webpack, rollup, gulp</li>
-              <li>algorithms, logic, testing</li>
-              <li>english(c1) & russian(native)</li>
-            </ul>
-          </div>
-
-          <div class="my-work__list-block">
-            <h3 class="my-work__list-title">community</h3>
-            <ul class="my-work__list-lists">
-              <li>open source projects on github</li>
-              <li><a class="my-work__list-link" href="https://t.me/csmch" target="_blank">music for coding on tg</a></li>
-              <li><a class="my-work__list-link" href="https://t.me/ninetie_s" target="_blank">90's music on tg</a></li>
-            </ul>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="projects" id="projects">
-      <div class="projects__wrapper">
-        <h2 class="projects__title">my projects</h2>
-        <p class="projects__subtitle">
-          This is the list of my latest open-source projects, some of them I was
-          doing just to gain experience in some technologies.
-        </p>
-        <div class="projects__cards">
-          <div class="projects__card">
-            <div class="projects__card-front">
-              <img
-                src="assets/images/vue.svg"
-                alt=""
-                class="projects__card-front-image"
-              />
+            <div class="my-work__list-block">
+              <h3 class="my-work__list-title">front end</h3>
+              <ul class="my-work__list-lists">
+                <li>html5, css3, sass(scss)</li>
+                <li>vanilla javascript & es6+, vue.js</li>
+                <li>api, full stack web apps</li>
+              </ul>
             </div>
-            <div class="projects__card-back">
-              <h2 class="projects__card-back-title">
-                <a href="https://github.com/pwndex/vuespins" target="_blank" class="projects__card-back-repo-link"
+
+            <div class="my-work__list-block">
+              <h3 class="my-work__list-title">back end</h3>
+              <ul class="my-work__list-lists">
+                <li>php, laravel, mysql</li>
+                <li>architecture of web applications</li>
+              </ul>
+            </div>
+
+            <div class="my-work__list-block">
+              <h3 class="my-work__list-title">other skills</h3>
+              <ul class="my-work__list-lists">
+                <li>git, git flow, linux</li>
+                <li>webpack, rollup, gulp</li>
+                <li>algorithms, logic, testing</li>
+                <li>english(c1) & russian(native)</li>
+              </ul>
+            </div>
+
+            <div class="my-work__list-block">
+              <h3 class="my-work__list-title">community</h3>
+              <ul class="my-work__list-lists">
+                <li>open source projects on github</li>
+                <li><a class="my-work__list-link" href="https://t.me/csmch" target="_blank">music for coding on tg</a></li>
+                <li><a class="my-work__list-link" href="https://t.me/ninetie_s" target="_blank">90's music on tg</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section class="projects" id="projects">
+        <div class="projects__wrapper">
+          <h2 class="projects__title">my projects</h2>
+          <p class="projects__subtitle">
+            This is the list of my latest open-source projects, some of them I was
+            doing just to gain experience in some technologies.
+          </p>
+          <div class="projects__cards">
+            <div class="projects__card">
+              <div class="projects__card-front">
+                <img
+                        src="assets/images/vue.svg"
+                        alt="Vuespins"
+                        class="projects__card-front-image"
+                />
+              </div>
+              <div class="projects__card-back">
+                <h2 class="projects__card-back-title">
+                  <a href="https://github.com/pwndex/vuespins" target="_blank" class="projects__card-back-repo-link"
                   >pwndex/vuespins</a
-                >
-              </h2>
-              <p class="projects__card-back-desc">
-                this is a huge customizable css spinners library for vuejs
-                projects.
-              </p>
-              <a class="projects__card-back-link" href="https://pwndex.github.io/vuespins" target="_blank">view demo</a>
+                  >
+                </h2>
+                <p class="projects__card-back-desc">
+                  this is a huge customizable css spinners library for vuejs
+                  projects.
+                </p>
+                <a class="projects__card-back-link" href="https://pwndex.github.io/vuespins" target="_blank">view demo</a>
+              </div>
             </div>
-          </div>
 
-          <div class="projects__card">
-            <div class="projects__card-front">
-              <img
-                src="assets/images/gulp.svg"
-                alt=""
-                class="projects__card-front-image"
-              />
-            </div>
-            <div class="projects__card-back">
-              <h2 class="projects__card-back-title">
-                <a href="https://github.com/pwndex/gulp-starter-kit" target="_blank" class="projects__card-back-repo-link"
+            <div class="projects__card">
+              <div class="projects__card-front">
+                <img
+                        src="assets/images/gulp.svg"
+                        alt="Gulp Starter Kit"
+                        class="projects__card-front-image"
+                />
+              </div>
+              <div class="projects__card-back">
+                <h2 class="projects__card-back-title">
+                  <a href="https://github.com/pwndex/gulp-starter-kit" target="_blank" class="projects__card-back-repo-link"
                   >gulp-starter-kit</a
-                >
-              </h2>
-              <p class="projects__card-back-desc">
-                this is a starter kit built in using gulp, it just automates
-                your development process of making website templates.
-              </p>
-              <a class="projects__card-back-link" href="https://pwndex.github.io/gulp-starter-kit" target="_blank">view demo</a>
+                  >
+                </h2>
+                <p class="projects__card-back-desc">
+                  this is a starter kit built in using gulp, it just automates
+                  your development process of making website templates.
+                </p>
+                <a class="projects__card-back-link" href="https://pwndex.github.io/gulp-starter-kit" target="_blank">view demo</a>
+              </div>
             </div>
-          </div>
 
-          <div class="projects__card">
-            <div class="projects__card-front">
-              <img
-                src="assets/images/pwndex-logo-white.svg"
-                alt=""
-                class="projects__card-front-image"
-              />
-            </div>
-            <div class="projects__card-back">
-              <h2 class="projects__card-back-title">
-                <a href="https://github.com/pwndex.github.io" target="_blank" class="projects__card-back-repo-link"
+            <div class="projects__card">
+              <div class="projects__card-front">
+                <img
+                        src="assets/images/pwndex-logo-white.svg"
+                        alt="Website Logo"
+                        class="projects__card-front-image"
+                />
+              </div>
+              <div class="projects__card-back">
+                <h2 class="projects__card-back-title">
+                  <a href="https://github.com/pwndex.github.io" target="_blank" class="projects__card-back-repo-link"
                   >pwndex.github.io</a
-                >
-              </h2>
-              <p class="projects__card-back-desc">
-                this is my personal website that i have designed and built by
-                myself, using only html, css and js.
-              </p>
-              <a class="projects__card-back-link" href="https://pwndex.github.io" target="_blank">view demo</a>
+                  >
+                </h2>
+                <p class="projects__card-back-desc">
+                  this is my personal website that i have designed and built by
+                  myself, using only html, css and js.
+                </p>
+                <a class="projects__card-back-link" href="https://pwndex.github.io" target="_blank">view demo</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- FOOTER SECTION -->
     <footer class="footer" id="social">
@@ -248,7 +255,7 @@
         <img
           src="assets/images/pwndex-logo-white.svg"
           class="footer__logo"
-          alt=""
+          alt="Website Logo"
         />
         <ul class="footer__social-block">
           <li class="footer__social-block-links">
@@ -292,7 +299,7 @@
         </a>
         <p class="footer__copyright">
           <span class="footer__copyright-first-section">
-            <sup>&copy;</sup> 2020 amal' Greenberg
+            <sup>&copy;</sup> 2021 amal' Greenberg
           </span>
 
           <span class="footer__copyright-second-section">
