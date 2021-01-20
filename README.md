@@ -73,4 +73,4 @@ After that you can simple push generated **/dist** folder to remote server.
 
 ## Copyright
 
-[MIT Licensed](https://github.com/pwndex/pwndex.github.io/blob/master/LICENSE) | Copyright © 2020 Amal' Greenberg
+[MIT Licensed](https://github.com/pwndex/pwndex.github.io/blob/master/LICENSE) | Copyright © 2021 Amal' Greenberg

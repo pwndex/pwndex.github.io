@@ -119,7 +119,17 @@ const fonts = () => {
 const images = () => {
   return gulp
     .src([src_assets_folder + 'images/**/*.+(png|jpg|jpeg|gif|svg|ico)'])
-    .pipe(imagemin())
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.mozjpeg({quality: 65, progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
     .pipe(gulp.dest(dist_assets_folder + 'images'))
     .pipe(browserSync.stream())
 }

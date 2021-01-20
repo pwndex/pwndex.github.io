@@ -1,3 +1,26 @@
+window.addEventListener('load', () => {
+  const preloader = document.querySelector('.preloader')
+  const bodyTag = document.querySelector('body')
+
+  bodyTag.classList.add('body-fixed')
+
+  const fadeEffect = setInterval(() => {
+    if (!preloader.style.opacity) {
+      preloader.style.opacity = 1
+    }
+    if (preloader.style.opacity > 0) {
+      preloader.style.opacity -= 0.1
+    } else {
+      clearInterval(fadeEffect)
+    }
+
+    preloader.classList.remove('preloader')
+    bodyTag.classList.remove('body-fixed')
+    preloader.classList.add('preloader-hide')
+    
+  }, 200)
+})
+
 window.__forceSmoothScrollPolyfill__ = true
 import smoothscroll from 'smoothscroll-polyfill'
 import 'particles.js/particles'
