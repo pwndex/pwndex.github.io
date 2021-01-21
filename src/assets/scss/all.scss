@@ -1,4 +1,3 @@
-@import 'fonts';
 @import 'reset';
 @import 'vars';
 @import 'components';
@@ -24,7 +23,7 @@
 html,
 body {
   height: 100%;
-  font-family: 'JosefinSans';
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .body-fixed {

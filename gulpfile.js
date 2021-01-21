@@ -26,7 +26,6 @@ const gulp                      = require('gulp'),
       uglify                    = require('gulp-uglify-es').default,
       cleanCSS                  = require('gulp-clean-css'),
       fileinclude               = require('gulp-file-include'),
-      ttf2woff2                 = require('gulp-ttf2woff2')
       webpackStream             = require('webpack-stream'),
       browserSync               = require('browser-sync').create(),
 
@@ -109,19 +108,12 @@ const sass = () => {
     .pipe(browserSync.stream())
 }
 
-const fonts = () => {
-  return gulp
-    .src(src_assets_folder + 'fonts/**/*.ttf')
-    .pipe(ttf2woff2())
-    .pipe(gulp.dest(dist_assets_folder + 'fonts'))
-}
-
 const images = () => {
   return gulp
-    .src([src_assets_folder + 'images/**/*.+(png|jpg|jpeg|gif|svg|ico)'])
+    .src([src_assets_folder + 'images/**/*.+(png|webp|jpg|jpeg|gif|svg|ico)'])
     .pipe(imagemin([
         imagemin.gifsicle({interlaced: true}),
-        imagemin.mozjpeg({quality: 65, progressive: true}),
+        imagemin.mozjpeg({quality: 45, progressive: true}),
         imagemin.optipng({optimizationLevel: 5}),
         imagemin.svgo({
             plugins: [
@@ -144,20 +136,19 @@ const watch = () => {
   const watch = [
       src_folder + '**/*.html',
       src_assets_folder + 'js/**/*.json',
-      src_assets_folder + 'fonts/**',
       src_assets_folder + 'scss/**/*.scss',
       src_assets_folder + 'js/**/*.js',
     ],
     watchImages = [
-      src_assets_folder + 'images/**/*.+(png|jpg|jpeg|gif|svg|ico)',
+      src_assets_folder + 'images/**/*.+(png|webp|jpg|jpeg|gif|svg|ico)',
     ]
 
   gulp.watch(watch, gulp.series(dev_tasks)).on('change', browserSync.reload)
   gulp.watch(watchImages, gulp.series(images)).on('change', browserSync.reload)
 }
 
-const dev_tasks                 = [html, json, fonts, sass, js],
-      build_tasks               = [html, json, fonts, images, sass, js]
+const dev_tasks                 = [html, json, sass, js],
+      build_tasks               = [html, json, images, sass, js]
 
-exports.serve = gulp.series(clean, gulp.parallel(html, json, sass, js, images), fonts, watch)
+exports.serve = gulp.series(clean, gulp.parallel(html, json, sass, js, images), watch)
 exports.build = gulp.series(build_tasks)

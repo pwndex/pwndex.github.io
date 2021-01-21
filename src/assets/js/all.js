@@ -1,8 +1,7 @@
 window.addEventListener('load', () => {
-  const preloader = document.querySelector('.preloader')
-  const bodyTag = document.querySelector('body')
-
-  bodyTag.classList.add('body-fixed')
+  let preloader = document.querySelector('.preloader')
+  // let bodyTag = document.querySelector('body')
+  // bodyTag.classList.add('body-fixed')
 
   const fadeEffect = setInterval(() => {
     if (!preloader.style.opacity) {
@@ -11,14 +10,13 @@ window.addEventListener('load', () => {
     if (preloader.style.opacity > 0) {
       preloader.style.opacity -= 0.1
     } else {
+      preloader.style.display = 'none'
       clearInterval(fadeEffect)
     }
-
-    preloader.classList.remove('preloader')
-    bodyTag.classList.remove('body-fixed')
-    preloader.classList.add('preloader-hide')
-    
-  }, 200)
+  }, 100)
+  
+  // preloader.classList.add('preloader-hide')
+  // bodyTag.classList.remove('body-fixed')
 })
 
 window.__forceSmoothScrollPolyfill__ = true
