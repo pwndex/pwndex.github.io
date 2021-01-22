@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
       clearInterval(fadeEffect)
     }
   }, 100)
-  
+
   // preloader.classList.add('preloader-hide')
   // bodyTag.classList.remove('body-fixed')
 })
@@ -52,10 +52,10 @@ navToggleButton.addEventListener('click', () => {
   navToggleContainer.classList.toggle('container-disabled')
 
   for (let link of mobileLinks) {
-      
+
     link.addEventListener('click', (e) => {
       e.preventDefault()
-      
+
       const linkID = link.getAttribute('href')
 
       bodyTag.classList.remove('body-fixed')
@@ -71,10 +71,10 @@ navToggleButton.addEventListener('click', () => {
 })
 
 for (let link of desktopLinks) {
-      
+
   link.addEventListener('click', (e) => {
     e.preventDefault()
-    
+
     const linkID = link.getAttribute('href')
 
     document.querySelector('' + linkID).scrollIntoView({

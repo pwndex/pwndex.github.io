@@ -34,6 +34,8 @@ const gulp                      = require('gulp'),
       dist_folder               = './dist/',
       dist_assets_folder        = dist_folder + 'assets/'
 
+gulp_sass.compiler = require('node-sass')
+
 const clean = () => {
   return del([dist_folder])
 }
