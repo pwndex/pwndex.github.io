@@ -22,7 +22,6 @@
     flex-direction: column;
   }
 
-
   // ============================================= HEADER MENU ===================================================
   &__nav-wrapper {
     width: 100%;
@@ -40,7 +39,6 @@
     max-width: 60px;
     z-index: 2;
   }
-
 
   // ============================================= HEADER NAVIGATION =============================================
   &__nav {
@@ -82,7 +80,6 @@
       }
     }
     // == / DESKTOP NAVIGATION ==
-
 
     // == NAVIGATION BUTTTON ==
     &-button {
@@ -143,10 +140,8 @@
         transform: rotate(-45deg);
         transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
       }
-
     }
     // == / NAVIGATION BUTTTON ==
-
 
     // == MOBILE NAVIGATION ==
     &-mobile-container {
@@ -204,9 +199,9 @@
     z-index: 3;
     background-color: $color-black;
     border-bottom: 1px solid $color-grey-a;
-    transition: background-color 0.5s linear, border-bottom 0.1s linear 0.5s, position 0.5s ease-in 0.6s;
+    transition: background-color 0.5s linear, border-bottom 0.1s linear 0.5s,
+      position 0.5s ease-in 0.6s;
   }
-
 
   // ============================================= HEADER CONTENT ==============================================
   &__content {
@@ -260,14 +255,13 @@
       color: $color-grey-e;
       font-size: 0.8rem;
       font-weight: 400;
-      padding: 20px 0 10px 20px;
+      padding: 40px 0 10px 20px;
 
       &-sections {
         margin-bottom: 10px;
       }
     }
   }
-
 
   // ============================================= HEADER SCROLL DOWN ==========================================
   &__scroll {
@@ -330,7 +324,6 @@
     }
 
     &__content {
-
       &-title {
         font-size: 3rem;
       }
