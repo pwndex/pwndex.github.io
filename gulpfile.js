@@ -128,6 +128,9 @@ const images = () => {
     .pipe(browserSync.stream())
 }
 
+const dev_tasks                 = [html, json, sass, js],
+      build_tasks               = [html, json, images, sass, js]
+
 const watch = () => {
   browserSync.init({
     server: {
@@ -148,9 +151,6 @@ const watch = () => {
   gulp.watch(watch, gulp.series(dev_tasks)).on('change', browserSync.reload)
   gulp.watch(watchImages, gulp.series(images)).on('change', browserSync.reload)
 }
-
-const dev_tasks                 = [html, json, sass, js],
-      build_tasks               = [html, json, images, sass, js]
 
 exports.serve = gulp.series(clean, gulp.parallel(html, json, sass, js, images), watch)
 exports.build = gulp.series(build_tasks)
